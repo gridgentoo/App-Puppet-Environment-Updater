@@ -1,0 +1,11 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use App::Puppet::EnvironmentUpdater;
+
+App::Puppet::EnvironmentUpdater->new_with_options({
+	environment => 'testing',
+	from        => 'development'
+})->run();
