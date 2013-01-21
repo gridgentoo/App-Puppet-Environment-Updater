@@ -251,7 +251,7 @@ sub run {
 		my @local_branches = map { m{([^ ]+$)}; $1 } $self->get_git()->branch();
 		for my $branch ($self->get_from(), $self->get_environment()) {
 			unless (any { $_ eq $branch } @local_branches) {
-				$self->create_branch($branch);
+				$self->create_and_switch_to_branch($branch);
 			}
 			$self->update_branch($branch);
 		}
@@ -305,9 +305,10 @@ sub remote_branch_for {
 }
 
 
-=head2 create_branch
+=head2 create_and_switch_to_branch
 
-Create a local branch starting at the corresponding remote branch.
+Create a local branch starting at the corresponding remote branch and switch to
+it.
 
 =head3 Parameters
 
@@ -327,7 +328,7 @@ Nothing on success, an exception otherwise.
 
 =cut
 
-sub create_branch {
+sub create_and_switch_to_branch {
 	my ($self, $branch) = @_;
 
 	$self->get_proxy_logger(BLUE.'[create-branch] '.RESET)->log(
