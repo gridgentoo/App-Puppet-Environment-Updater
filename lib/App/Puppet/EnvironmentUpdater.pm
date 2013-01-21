@@ -115,7 +115,7 @@ The branch to merge to.
 =item remote
 
 The Git remote where changes can be fetched from and should be pushed to. B<This
-application does currently not push any changes.>
+application does currently not push any changes.> Defaults to C<origin>.
 
 =item workdir
 
