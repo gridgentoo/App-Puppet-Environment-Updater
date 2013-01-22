@@ -77,6 +77,37 @@ sub create_and_switch_to_branch_test : Test(1) {
 }
 
 
+sub update_branch_test : Test(3) {
+	my ($self) = @_;
+
+	my $app = $self->create_updater();
+	$app->update_branch('master');
+	is(
+		($self->{work_git}->show())[0],
+		($self->{env_git}->show())[0],
+		'up to date before commit on upstream master'
+	);
+
+	$self->{tmp}->create_tree({
+		'repos/environment/site.pp' => "node 'example.com' {}",
+	});
+	$self->{env_git}->commit('-a', '-m', 'Add single quotes');
+	isnt(
+		($self->{env_git}->show())[0],
+		($self->{work_git}->show())[0],
+		'not up to date after commit on upstream'
+	);
+
+	$app->get_git()->fetch('origin');
+	$app->update_branch('master');
+	is(
+		($self->{env_git}->show())[0],
+		($self->{work_git}->show())[0],
+		'up to date after update'
+	);
+}
+
+
 sub create_updater {
 	my ($self, %arg) = @_;
 
