@@ -108,6 +108,28 @@ sub update_branch_test : Test(3) {
 }
 
 
+sub merge_test : Test(1) {
+	my ($self) = @_;
+
+	$self->{tmp}->create_tree({
+		'repos/environment/site.pp' => "node 'example.com' {}",
+	});
+	$self->{env_git}->commit('-a', '-m', 'Add single quotes');
+
+	my $app = $self->create_updater();
+	$app->create_and_switch_to_branch('foo');
+	$app->get_git()->fetch('origin');
+	$app->update_branch('master');
+
+	$app->merge('master', 'foo');
+	like(
+		($self->{work_git}->log('foo'))[0]->{message},
+		qr{master.*foo},
+		'branch merged, merge commit created'
+	);
+}
+
+
 sub create_updater {
 	my ($self, %arg) = @_;
 
