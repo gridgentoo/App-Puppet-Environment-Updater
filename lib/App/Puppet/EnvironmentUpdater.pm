@@ -138,20 +138,20 @@ has 'from' => (
 	is            => 'ro',
 	isa           => 'Str',
 	required      => 1,
-	documentation => 'Environment/branch which should be merged'
+	documentation => 'Environment/branch which should be merged',
 );
 
 has 'environment' => (
 	is            => 'ro',
 	isa           => 'Str',
 	required      => 1,
-	documentation => 'Environment/branch which should be updated'
+	documentation => 'Environment/branch which should be updated',
 );
 
 has 'remote' => (
 	is            => 'ro',
 	isa           => 'Str',
-	documentation => 'Git remote to fetch latest changes from, defaults to "origin" ',
+	documentation => 'Git remote to fetch latest changes from, defaults to "origin"',
 	default       => 'origin',
 );
 
@@ -162,7 +162,7 @@ has 'workdir' => (
 	documentation => 'Directory to work in, should be the directory with the environment that should be updated',
 	default       => sub {
 		return Path::Class::Dir->new('.')->absolute();
-	}
+	},
 );
 
 has 'git' => (
@@ -175,7 +175,7 @@ has 'git' => (
 		return Git::Wrapper->new(
 			$self->get_workdir()->absolute()->resolve()->stringify()
 		);
-	}
+	},
 );
 
 has 'logger' => (
@@ -192,7 +192,7 @@ has 'logger' => (
 		});
 		$logger->set_prefix('[update-'.$self->get_environment().'] ');
 		return $logger;
-	}
+	},
 );
 
 
