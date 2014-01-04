@@ -267,7 +267,7 @@ sub run {
 	}
 	catch {
 		my $error = $_;
-		$error =~ s{^(?:\[.*\] )*}{}; # Remove prefixes
+		$error =~ s{^(?:\[.*\]\s)*}{}x; # Remove prefixes
 		$self->get_logger()->log(BOLD.RED.'Failed to update. Error was: '.RESET.$error);
 	};
 
@@ -471,6 +471,8 @@ sub update_submodules {
 }
 
 __PACKAGE__->meta()->make_immutable();
+
+1;
 
 =head1 SEE ALSO
 
