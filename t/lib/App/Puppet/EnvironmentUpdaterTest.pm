@@ -130,6 +130,27 @@ sub merge_test : Test(1) {
 }
 
 
+sub run_test : Test(1) {
+	my ($self) = @_;
+
+	$self->{env_git}->branch('testing');
+	$self->{tmp}->create_tree({
+		'repos/environment/site.pp' => "node 'example.com' {}",
+	});
+	$self->{env_git}->commit('-a', '-m', 'Add single quotes');
+	$self->{env_git}->branch('development');
+	$self->{work_git}->checkout('-b', 'testing', 'origin/foo');
+	my $updater = $self->create_updater();
+	$updater->run();
+	my @log = $self->{work_git}->log();
+	like(
+		$log[0]->message(),
+		qr{Merge branch 'development' into testing},
+		'development merged into testing'
+	);
+}
+
+
 sub create_updater {
 	my ($self, %arg) = @_;
 
