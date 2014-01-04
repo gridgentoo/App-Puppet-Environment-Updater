@@ -1,5 +1,10 @@
 #!/usr/bin/env perl
 
+package
+	git_update_production;
+
+# ABSTRACT: Update production Puppet environment from staging branch
+
 use strict;
 use warnings;
 
@@ -9,3 +14,19 @@ App::Puppet::EnvironmentUpdater->new_with_options({
 	environment => 'production',
 	from        => 'staging'
 })->run();
+
+=head1 SYNOPSIS
+
+	$ git update-production
+
+=head1 SEE ALSO
+
+=over
+
+=item *
+
+L<App::Puppet::EnvironmentUpdater|App::Puppet::EnvironmentUpdater>
+
+=back
+
+=cut

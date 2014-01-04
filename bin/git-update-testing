@@ -1,5 +1,10 @@
 #!/usr/bin/env perl
 
+package
+	git_update_testing;
+
+# ABSTRACT: Update testing Puppet environment from development branch
+
 use strict;
 use warnings;
 
@@ -9,3 +14,19 @@ App::Puppet::EnvironmentUpdater->new_with_options({
 	environment => 'testing',
 	from        => 'development'
 })->run();
+
+=head1 SYNOPSIS
+
+	$ git update-testing
+
+=head1 SEE ALSO
+
+=over
+
+=item *
+
+L<App::Puppet::EnvironmentUpdater|App::Puppet::EnvironmentUpdater>
+
+=back
+
+=cut

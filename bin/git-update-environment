@@ -1,8 +1,29 @@
 #!/usr/bin/env perl
 
+package
+	git_update_environment;
+
+# ABSTRACT: Update a Puppet environment from another branch
+
 use strict;
 use warnings;
 
 use App::Puppet::EnvironmentUpdater;
 
 App::Puppet::EnvironmentUpdater->new_with_options()->run();
+
+=head1 SYNOPSIS
+
+	$ git update-environment --environment production --from development
+
+=head1 SEE ALSO
+
+=over
+
+=item *
+
+L<App::Puppet::EnvironmentUpdater|App::Puppet::EnvironmentUpdater>
+
+=back
+
+=cut

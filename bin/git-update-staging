@@ -1,5 +1,10 @@
 #!/usr/bin/env perl
 
+package
+	git_update_staging;
+
+# ABSTRACT: Update staging Puppet environment from testing branch
+
 use strict;
 use warnings;
 
@@ -9,3 +14,19 @@ App::Puppet::EnvironmentUpdater->new_with_options({
 	environment => 'staging',
 	from        => 'testing'
 })->run();
+
+=head1 SYNOPSIS
+
+	$ git update-staging
+
+=head1 SEE ALSO
+
+=over
+
+=item *
+
+L<App::Puppet::EnvironmentUpdater|App::Puppet::EnvironmentUpdater>
+
+=back
+
+=cut
