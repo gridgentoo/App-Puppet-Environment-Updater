@@ -248,9 +248,8 @@ sub run {
 		$self->get_logger()->log(CYAN.'Fetching latest changes from '.$self->get_remote().'...'.RESET);
 		$self->get_git()->fetch($self->get_remote());
 
-		my @local_branches = map { m{([^ ]+$)}; $1 } $self->get_git()->branch();
 		for my $branch ($self->get_from(), $self->get_environment()) {
-			unless (any { $_ eq $branch } @local_branches) {
+			unless (any { $_ eq $branch } $self->get_local_branches()) {
 				$self->create_and_switch_to_branch($branch);
 			}
 			$self->update_branch($branch);
@@ -273,6 +272,29 @@ sub run {
 	};
 
 	return;
+}
+
+
+=head2 get_local_branches
+
+Get a list with local branches.
+
+=head3 Result
+
+The local branches.
+
+=cut
+
+sub get_local_branches {
+	my ($self) = @_;
+
+	my @branches;
+	for my $branch ($self->get_git()->branch()) {
+		$branch =~ s{^[*\s]*}{}x;
+		push @branches, $branch;
+	}
+
+	return @branches;
 }
 
 

@@ -151,6 +151,21 @@ sub run_test : Test(1) {
 }
 
 
+sub get_local_branches_test : Test(2) {
+	my ($self) = @_;
+
+	my $updater = $self->create_updater();
+	my @local_branches = $updater->get_local_branches();
+	is_deeply(\@local_branches, ['master'], 'only master is local');
+	$updater->get_git()->branch('foo');
+	is_deeply(
+		[sort $updater->get_local_branches()],
+		['foo', 'master'],
+		'foo exists'
+	);
+}
+
+
 sub create_updater {
 	my ($self, %arg) = @_;
 
