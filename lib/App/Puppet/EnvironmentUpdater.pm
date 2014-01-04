@@ -462,10 +462,12 @@ sub update_submodules {
 	my $workdir = pushd($self->get_workdir());
 	my $logger = $self->get_proxy_logger(YELLOW.'[update-submodules] '.RESET);
 	$logger->log('Updating submodules...');
-	$logger->log(
-		$self->get_git()->submodule('update', '--init')
-			|| 'No submodules to update.'
-	);
+	if (my @updated = $self->get_git()->submodule('update', '--init')) {
+		$logger->log($_) for @updated;
+	}
+	else {
+		$logger->log('No submodules to update.');
+	}
 
 	return;
 }
