@@ -100,7 +100,7 @@ Constructor, creates new instance of the application.
 =head3 Parameters
 
 This method expects its parameters as a hash reference. See C<--usage> to see
-which parameter can be passed on the command line.
+which parameters can be passed on the command line.
 
 =over
 
@@ -128,7 +128,7 @@ The L<Git::Wrapper|Git::Wrapper> instance to use.
 
 =item logger
 
-A L<Log::Dispatchouli|Log::Dispatchouli> instance to use.
+The L<Log::Dispatchouli|Log::Dispatchouli> instance to use.
 
 =back
 
@@ -364,7 +364,8 @@ sub create_and_switch_to_branch {
 
 =head2 update_branch
 
-Update a local branch from the corresponding remote branch.
+Update a local branch from the corresponding remote branch, using a fast-forward
+merge.
 
 =head3 Parameters
 
