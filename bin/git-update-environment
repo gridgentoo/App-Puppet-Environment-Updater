@@ -8,9 +8,9 @@ package
 use strict;
 use warnings;
 
-use App::Puppet::EnvironmentUpdater;
+use App::Puppet::Environment::Updater;
 
-App::Puppet::EnvironmentUpdater->new_with_options()->run();
+App::Puppet::Environment::Updater->new_with_options()->run();
 
 =head1 SYNOPSIS
 
@@ -22,7 +22,7 @@ App::Puppet::EnvironmentUpdater->new_with_options()->run();
 
 =item *
 
-L<App::Puppet::EnvironmentUpdater|App::Puppet::EnvironmentUpdater>
+L<App::Puppet::Environment::Updater|App::Puppet::Environment::Updater>
 
 =back
 

@@ -8,9 +8,9 @@ package
 use strict;
 use warnings;
 
-use App::Puppet::EnvironmentUpdater;
+use App::Puppet::Environment::Updater;
 
-App::Puppet::EnvironmentUpdater->new_with_options({
+App::Puppet::Environment::Updater->new_with_options({
 	environment => 'staging',
 	from        => 'testing'
 })->run();
@@ -25,7 +25,7 @@ App::Puppet::EnvironmentUpdater->new_with_options({
 
 =item *
 
-L<App::Puppet::EnvironmentUpdater|App::Puppet::EnvironmentUpdater>
+L<App::Puppet::Environment::Updater|App::Puppet::Environment::Updater>
 
 =back
 

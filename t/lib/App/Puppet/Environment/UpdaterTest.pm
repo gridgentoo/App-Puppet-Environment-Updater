@@ -1,4 +1,4 @@
-package App::Puppet::EnvironmentUpdaterTest;
+package App::Puppet::Environment::UpdaterTest;
 use parent qw(Test::Class);
 
 use strict;
@@ -7,7 +7,7 @@ use warnings;
 use Carp;
 use Test::More;
 use Test::Exception;
-use App::Puppet::EnvironmentUpdater;
+use App::Puppet::Environment::Updater;
 use Directory::Scratch;
 use Log::Dispatchouli;
 use Git::Wrapper;
@@ -44,7 +44,7 @@ sub teardown : Test(teardown) {
 sub test_new : Test(1) {
 	my ($self) = @_;
 
-	new_ok('App::Puppet::EnvironmentUpdater' => [
+	new_ok('App::Puppet::Environment::Updater' => [
 		environment => 'testing',
 		from        => 'development',
 	], 'instance created');
@@ -169,7 +169,7 @@ sub get_local_branches_test : Test(2) {
 sub create_updater {
 	my ($self, %arg) = @_;
 
-	return App::Puppet::EnvironmentUpdater->new({
+	return App::Puppet::Environment::Updater->new({
 		environment => 'testing',
 		from        => 'development',
 		workdir     => $self->{workdir},

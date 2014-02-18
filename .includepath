@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includepath>
-	<includepathentry path="${resource_loc:/App-Puppet-EnvironmentUpdater/lib}" />
-	<includepathentry path="${resource_loc:/App-Puppet-EnvironmentUpdater/t/lib}" />
+	<includepathentry path="${resource_loc:/App-Puppet-Environment-Updater/lib}" />
+	<includepathentry path="${resource_loc:/App-Puppet-Environment-Updater/t/lib}" />
 </includepath>

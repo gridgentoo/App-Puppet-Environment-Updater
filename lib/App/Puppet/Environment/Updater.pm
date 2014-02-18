@@ -1,4 +1,4 @@
-package App::Puppet::EnvironmentUpdater;
+package App::Puppet::Environment::Updater;
 
 # ABSTRACT: Update a Puppet environment in a Git branch
 
@@ -20,13 +20,13 @@ use namespace::autoclean;
 
 =head1 SYNOPSIS
 
-	use App::Puppet::EnvironmentUpdater;
+	use App::Puppet::Environment::Updater;
 
-	App::Puppet::EnvironmentUpdater->new_with_options()->run();
+	App::Puppet::Environment::Updater->new_with_options()->run();
 
 =head1 DESCRIPTION
 
-App::Puppet::EnvironmentUpdater is intended to update Puppet environments which
+App::Puppet::Environment::Updater is intended to update Puppet environments which
 are in Git branches. There are many ways to organize a Puppet setup and Puppet
 environments, and this application supports the following approach:
 
