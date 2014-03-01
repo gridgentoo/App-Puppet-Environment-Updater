@@ -22,7 +22,7 @@ git_update_environment - Update a Puppet environment from another branch
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 

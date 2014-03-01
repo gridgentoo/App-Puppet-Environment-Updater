@@ -23,6 +23,8 @@ sub setup : Test(setup) {
 	$env->mkpath();
 	$self->{env_git} = Git::Wrapper->new($env);
 	$self->{env_git}->init();
+	$self->{env_git}->config('user.email' => 'test@example.com');
+	$self->{env_git}->config('user.name'  => 'test@example.com');
 	$self->{tmp}->create_tree({
 		'repos/environment/site.pp' => "node example.com {}",
 	});
@@ -33,6 +35,8 @@ sub setup : Test(setup) {
 	$self->{workdir} = $self->{tmp}->mkdir('work');
 	$self->{work_git} = Git::Wrapper->new($self->{workdir});
 	$self->{work_git}->clone($env, $self->{workdir});
+	$self->{work_git}->config('user.email' => 'test@example.com');
+	$self->{work_git}->config('user.name'  => 'test@example.com');
 }
 
 sub teardown : Test(teardown) {

@@ -24,7 +24,7 @@ my %module_build_args = (
     "Manfred Stock <mstock\@cpan.org>"
   ],
   "dist_name" => "App-Puppet-Environment-Updater",
-  "dist_version" => "0.001000",
+  "dist_version" => "0.001001",
   "license" => "perl",
   "module_name" => "App::Puppet::Environment::Updater",
   "recommends" => {},

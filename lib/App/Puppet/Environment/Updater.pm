@@ -1,6 +1,6 @@
 package App::Puppet::Environment::Updater;
 {
-  $App::Puppet::Environment::Updater::VERSION = '0.001000';
+  $App::Puppet::Environment::Updater::VERSION = '0.001001';
 }
 
 # ABSTRACT: Update a Puppet environment in a Git branch
@@ -237,7 +237,7 @@ App::Puppet::Environment::Updater - Update a Puppet environment in a Git branch
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 

@@ -41,4 +41,4 @@ requires:
   warnings: 0
 resources:
   repository: git://github.com/mstock/App-Puppet-Environment-Updater.git
-version: 0.001000
+version: 0.001001

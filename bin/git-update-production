@@ -25,7 +25,7 @@ git_update_production - Update production Puppet environment from staging branch
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
