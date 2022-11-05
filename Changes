@@ -2,6 +2,9 @@ Revision history for App-Puppet-Environment-Updater
 
 {{$NEXT}}
 
+ - Make sure the tests use the expected branch on newer Git versions if a
+   different default branch is either configured or the new default of Git.
+
 0.001001  2014-03-01 13:13:41 Europe/Zurich
 
  - Avoid test failure if user.{email,name} is not set in Git config
