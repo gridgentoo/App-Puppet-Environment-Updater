@@ -28,8 +28,5 @@ jobs:
           cpanfile: 'cpanfile'
           sudo: false
       - run: 'git --version'
-      - run: 'uname -a'
-      - run: 'id'
       - run: 'perl -V'
-      - run: 'lsb_release -a || true'
       - run: 'prove -lv'
