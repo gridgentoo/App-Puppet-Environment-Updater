@@ -22,7 +22,7 @@ sub setup : Test(setup) {
 	my $env = $repos_dir->subdir('environment');
 	$env->mkpath();
 	$self->{env_git} = Git::Wrapper->new($env);
-	$self->{env_git}->init();
+	$self->{env_git}->init('--initial-branch' => 'master');
 	$self->{env_git}->config('user.email' => 'test@example.com');
 	$self->{env_git}->config('user.name'  => 'test@example.com');
 	$self->{tmp}->create_tree({
