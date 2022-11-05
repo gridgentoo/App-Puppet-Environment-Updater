@@ -2,6 +2,8 @@ Revision history for App-Puppet-Environment-Updater
 
 {{$NEXT}}
 
+0.001002  2022-11-05 20:53:26+01:00 Europe/Zurich
+
  - Make sure the tests use the expected branch on newer Git versions if a
    different default branch is either configured or the new default of Git.
 
