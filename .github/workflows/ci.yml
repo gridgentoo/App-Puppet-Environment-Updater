@@ -1,4 +1,7 @@
-# .github/workflows/linux.yml
+---
+name: 'CI'
+on:
+  - 'push'
 jobs:
   perl_tester:
     runs-on: 'ubuntu-latest'
